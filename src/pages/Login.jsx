@@ -2,6 +2,7 @@ import { Flex, Image, Box, Input, Text, Button } from "@chakra-ui/react"
 import logo from "../assets/logo.png"
 import login from "../assets/login.png"
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -28,6 +29,7 @@ const Login = () => {
           </form>
           <Text mt={3}>Or</Text>
           <Button width={"40%"} fontWeight={100} p={5} border={"1px solid #687C94"} backgroundColor={"white"} color={"#7848F4"} _hover={{backgroundColor: "white", color:"#7848F4"}} mt={5} as={"button"} type="submit"><FcGoogle />&nbsp;Continue with Google</Button>
+          <Text mt={5} display={"flex"} gap={1}>Don&apos;t have an account? <Link to="/signup"><Text color="#7848F4">Sign Up</Text></Link></Text>
         </Box>
       </Flex>
     </>
