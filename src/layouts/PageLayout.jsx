@@ -6,7 +6,7 @@ const PageLayout = () => {
   return (
     <>
       <Header/>
-        <Outlet/>
+          <Outlet/>
       <Footer/>
     </>
   )
