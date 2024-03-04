@@ -4,7 +4,7 @@ import { Image, Button, Input, Box, Text } from "@chakra-ui/react"
 const Footer = () => {
   return (
     <>
-      <Box backgroundColor={"#10107B"} p={10} display={"flex"} flexDirection={"column"} alignItems={"center"}>
+      <Box mt={10} backgroundColor={"#10107B"} p={10} display={"flex"} flexDirection={"column"} alignItems={"center"}>
         <Image as={"img"} src={logo} width={120}/>
         <Text color={"white"} mt={5}>Subscribe to our newsletter:</Text>
         <form style={{ width: "70%", margin: "0 auto", display:"flex", justifyContent:"center", alignItems:"center" }}>
