@@ -2,7 +2,6 @@ import { Box, Image, Button, Heading, Flex, Text } from "@chakra-ui/react"
 import eventHero from "../assets/eventHero.png"
 import { Link } from "react-router-dom"
 import { FaArrowLeft } from "react-icons/fa";
-import EventDisplay from "../components/EventDisplay"
 
 const Event = () => {
   return (
@@ -17,6 +16,7 @@ const Event = () => {
               </Box>
               <Box>
                 <Heading fontSize={40} mt={8} color={"white"}>Dream WorldWide In Abuja</Heading>
+                <Text color={"white"}>By Covenant Ogowale</Text>
               </Box>
               <Box color={"white"} mt={16}>
                 <Text fontSize={32}>Abuja, Nigeria</Text>
@@ -29,7 +29,6 @@ const Event = () => {
           </Box>
         </Box>
       </Box>
-      <EventDisplay/>
     </>
   )
 }
