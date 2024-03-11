@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const EventDisplayCard = () => {
   return (
     <>
-      <Box mt={7} boxShadow={"2xl"} width={{ base:"100%", md:"45%" }} p={5} borderRadius={15} backgroundColor={"white"} cursor={"pointer"}>
+      <Box mt={7} boxShadow={"2xl"} width={{ base:"100%", md:"45%", lg:"23%" }} p={5} borderRadius={15} backgroundColor={"white"} cursor={"pointer"}>
         <Link to={"/event"}>
           <Flex flexDirection={"column"}>
             <Box position={"relative"} width={"100%"}>

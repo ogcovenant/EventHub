@@ -9,7 +9,7 @@ const Footer = () => {
         <Text color={"white"} mt={5}>Subscribe to our newsletter:</Text>
         <form style={{ width: "100%", margin: "0 auto", display:"flex", justifyContent:"center", alignItems:"center" }}>
             <Input backgroundColor={"white"} width={{ base:"70%", md:"50%" }} m={1} placeholder="Enter Your Email" />
-            <Button type="submit" width={{ base:"15%" }} mx={2}>Subscribe</Button>
+            <Button type="submit" width={{ base:"30%", md:"15%" }} mx={2}>Subscribe</Button>
         </form>
         <Text color={"white"} mt={5}>©2024 Covenant Ogowale </Text>
       </Box>
