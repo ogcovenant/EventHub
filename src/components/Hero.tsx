@@ -8,9 +8,9 @@ const Hero = () => {
     <>
       <Box display={"flex"} justifyContent={"center"} mt={5} position={"relative"} mb={20}>
         <Box position={"relative"} width={"90%"}>
-          <Image src={heroImg} width={"100%"} height={"70vh"}/>  
-          <Box position={"absolute"} width={"100%"} top={28}>
-            <Text textAlign={"center"} backdropBlur={20} display={"block"} backgroundColor={"#0000006F"} p={5} fontSize={80} color={"white"}>Discover, Connect, Experience!</Text>
+          <Image src={heroImg} width={"100%"} height={{ base:"40vh" }}/>  
+          <Box position={"absolute"} width={"100%"} top={{ base:"20" }}>
+            <Text textAlign={"center"} backdropBlur={20} display={"block"} backgroundColor={"#0000006F"} p={5} fontSize={{ base:20 }} color={"white"}>Discover, Connect, Experience!</Text>
           </Box>
         </Box>
         <Box position={"absolute"} width={"80%"} backgroundColor={"#10107B"} bottom={-16} p={10} color={"white"} display={"flex"} justifyContent={"center"} gap={3} alignItems={"flex-end"} borderRadius={15}>

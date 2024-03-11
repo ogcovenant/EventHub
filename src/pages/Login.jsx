@@ -4,16 +4,19 @@ import login from "../assets/login.png"
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
+import * as Yup from "yup"
 
 const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      username:"",
       email:"",
-      password:"",
-      confirmPassword:""
+      password:""
     },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string().min(8, "Password can not be less than 8 characters").required("Required")
+    }),
     onSubmit: values => {
       console.log(values);
     }
@@ -29,16 +32,18 @@ const Login = () => {
             <Image as={"img"} src={logo} width={120}/>
           </Flex>
           <form style={{ marginTop: 10 }} onSubmit={formik.handleSubmit}>
-            <Box mt={5}>
+          <Box mt={5} fontSize={14}>
               <label htmlFor="email">email</label>
-              <Input placeholder="johndoe@mail.co" border={"1px solid #7848F4"} backgroundColor={"white"} type="email" name="email" id="email"/>
+              <Input onChange={formik.handleChange} value={formik.values.email} onBlur={formik.handleBlur} placeholder="johndoe@mail.co" border={"1px solid #7848F4"} backgroundColor={"white"} type="email" name="email" id="email"/>
+              {formik.errors.email && formik.touched.email ? (<Text color={"red"} fontSize={12}>{formik.errors.email}</Text>) : null}
             </Box>
-            <Box mt={5}>
+            <Box mt={5} fontSize={14}>
               <label htmlFor="password">password</label>
-              <Input placeholder="👻👻👻👻👻👻👻👻" border={"1px solid #7848F4"} backgroundColor={"white"} type="password" name="password" id="password"/>
+              <Input onChange={formik.handleChange} value={formik.values.password} onBlur={formik.handleBlur} placeholder="👻👻👻👻👻👻👻👻" border={"1px solid #7848F4"} backgroundColor={"white"} type="password" name="password" id="password"/>
+              {formik.errors.password && formik.touched.password ? (<Text color={"red"} fontSize={12}>{formik.errors.password}</Text>) : null}
             </Box>
             <Box width={"100%"} display={"flex"} justifyContent={"center"}>
-              <Button width={"40%"} fontWeight={100} backgroundColor={"#7848F4"} color={"white"} _hover={{backgroundColor: "#7848F4", color:"white"}} mt={5} as={"button"} type="submit">Log In</Button>
+              <Button width={"100%"} fontWeight={100} backgroundColor={"#7848F4"} color={"white"} _hover={{backgroundColor: "#7848F4", color:"white"}} mt={5} as={"button"} type="submit">Log In</Button>
             </Box>
           </form>
           <Text mt={3}>Or</Text>
