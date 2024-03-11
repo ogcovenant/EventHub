@@ -1,4 +1,4 @@
-import { Select, Button, Box, Image, Text } from "@chakra-ui/react"
+import { Input, Button, Box, Image, Text } from "@chakra-ui/react"
 import React from "react"
 import { FaSearch } from "react-icons/fa"
 import heroImg from "../assets/hero.png"
@@ -14,26 +14,8 @@ const Hero = () => {
           </Box>
         </Box>
         <Box position={"absolute"} width={"80%"} backgroundColor={"#10107B"} bottom={-16} p={10} color={"white"} display={"flex"} justifyContent={"space-around"} alignItems={"flex-end"} borderRadius={15}>
-          <Box width={"28%"}>
-            <label htmlFor="chooseEventType">Looking For</label>
-            <Select backgroundColor={"white"} color={"black"} placeholder="Choose Event Type" id="chooseEventType" name="chooseEventType" cursor={"pointer"}>
-              <option value="Party">Party</option>
-              <option value="Bootcamp">Bootcamp</option>
-            </Select>
-          </Box>
-          <Box width={"28%"}>
-            <label htmlFor="chooseEventLocation">Location</label>
-            <Select backgroundColor={"white"} color={"black"} placeholder="Choose Location" id="chooseEventLocation" name="chooseEventLocation" cursor={"pointer"}>
-              <option value="Party">Lagos</option>
-              <option value="Bootcamp">Abuja</option>
-            </Select>
-          </Box>
-          <Box width={"28%"}>
-            <label htmlFor="chooseEventDateTime">When</label>
-            <Select backgroundColor={"white"} color={"black"} placeholder="Choose Date and Time" id="chooseEventDateTime" name="chooseEventDateTime" cursor={"pointer"}>
-              <option value="Morning">Party</option>
-              <option value="Afternoon">Bootcamp</option>
-            </Select>
+          <Box w={"90%"}>
+            <Input type="text" placeholder="Search for events..." backgroundColor={"white"} color={"black"}/>
           </Box>
           <Button><FaSearch /></Button>
         </Box>
