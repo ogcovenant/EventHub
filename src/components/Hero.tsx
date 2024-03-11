@@ -13,7 +13,7 @@ const Hero = () => {
             <Text textAlign={"center"} backdropBlur={20} display={"block"} backgroundColor={"#0000006F"} p={5} fontSize={80} color={"white"}>Discover, Connect, Experience!</Text>
           </Box>
         </Box>
-        <Box position={"absolute"} width={"80%"} backgroundColor={"#10107B"} bottom={-16} p={10} color={"white"} display={"flex"} justifyContent={"space-around"} alignItems={"flex-end"} borderRadius={15}>
+        <Box position={"absolute"} width={"80%"} backgroundColor={"#10107B"} bottom={-16} p={10} color={"white"} display={"flex"} justifyContent={"center"} gap={3} alignItems={"flex-end"} borderRadius={15}>
           <Box w={"90%"}>
             <Input type="text" placeholder="Search for events..." backgroundColor={"white"} color={"black"}/>
           </Box>

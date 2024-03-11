@@ -3,18 +3,32 @@ import logo from "../assets/logo.png"
 import login from "../assets/login.png"
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
 
 const Login = () => {
+
+  const formik = useFormik({
+    initialValues: {
+      username:"",
+      email:"",
+      password:"",
+      confirmPassword:""
+    },
+    onSubmit: values => {
+      console.log(values);
+    }
+  })
+
   return (
     <>
       <Flex alignItems={"center"}>
-        <Image as={"img"} src={login} width={"40%"} height={"100vh"}/>
-        <Box backgroundColor={"#F8F8FA"} height={"100vh"} width={"60%"} p={10} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+        <Image as={"img"} src={login} width={"40%"} height={"100vh"} display={{ base:"none", lg:"block" }}/>
+        <Box backgroundColor={"#F8F8FA"} height={"100vh"} width={{ base:"100%" }} p={10} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
           <Flex alignItems={"center"} justifyContent={"center"} gap={2}>
             <Text fontSize={20}>Log In to</Text>
             <Image as={"img"} src={logo} width={120}/>
           </Flex>
-          <form style={{ marginTop: 10 }}>
+          <form style={{ marginTop: 10 }} onSubmit={formik.handleSubmit}>
             <Box mt={5}>
               <label htmlFor="email">email</label>
               <Input placeholder="johndoe@mail.co" border={"1px solid #7848F4"} backgroundColor={"white"} type="email" name="email" id="email"/>
@@ -28,7 +42,7 @@ const Login = () => {
             </Box>
           </form>
           <Text mt={3}>Or</Text>
-          <Button width={"40%"} fontWeight={100} p={5} border={"1px solid #687C94"} backgroundColor={"white"} color={"#7848F4"} _hover={{backgroundColor: "white", color:"#7848F4"}} mt={5} as={"button"} type="submit"><FcGoogle />&nbsp;Continue with Google</Button>
+          <Button width={{ base:"90%", sm:"55%", md:"40%" }} fontWeight={100} p={5} border={"1px solid #687C94"} backgroundColor={"white"} color={"#7848F4"} _hover={{backgroundColor: "white", color:"#7848F4"}} mt={5} as={"button"} type="submit"><FcGoogle />&nbsp;Continue with Google</Button>
           <Text mt={5} display={"flex"} gap={1}>Don&apos;t have an account? <Link to="/signup"><Text color="#7848F4">Sign Up</Text></Link></Text>
         </Box>
       </Flex>
