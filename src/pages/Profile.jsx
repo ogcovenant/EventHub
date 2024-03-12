@@ -11,12 +11,12 @@ const Profile = () => {
           </Box>
           <Box mt={6}>
             <form>
-              <Box display={"flex"} gap={"20px"}>
-                <Box>
+              <Box display={"flex"} gap={{ base:"5px", md:"20px" }}>
+                <Box width={"50%"}>
                   <label htmlFor="username">username</label>
                   <Input type="text" name="username" id="username" placeholder="john_doe" value={"just_covenant_"} border={"1px solid grey"}/>
                 </Box>
-                <Box>
+                <Box width={"50%"}>
                   <label htmlFor="email">email</label>
                   <Input type="email" name="email" id="email" placeholder="john@doe.com" value={"justcovenant@gmail.com"} border={"1px solid grey"}/>
                 </Box>
