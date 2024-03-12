@@ -6,11 +6,11 @@ import DashSide from "../components/DashSide"
 const Dashboard = () => {
   return (
     <>
-      <Box>
+      <Box height={"100vh"}>
         <DashHeader />
         <Box display={"flex"}>
           <DashSide />
-          <Box>
+          <Box width={"85%"} p={5}>
             <Outlet/>
           </Box>
         </Box>
