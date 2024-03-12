@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const Register = () => {
   return (
     <>
-      <Box>
+      <Box overflowX={"hidden"}>
           <Box position={"relative"} left={5}>
             <Link to="/event"><Button display={"flex"} gap={1} fontWeight={100} backgroundColor={"black"} color={"white"} _hover={{ backgroundColor:"black", color:"white" }}><FaArrowLeft /> Back</Button></Link>
           </Box>

@@ -8,7 +8,7 @@ const Hero = () => {
     <>
       <Box display={"flex"} justifyContent={"center"} mt={5} position={"relative"} mb={{ base:12 }}>
         <Box position={"relative"} width={"90%"}>
-          <Image src={heroImg} width={"100%"} height={{ base:"30vh", md:"70vh" }} borderRadius={{ base:30 }}/>  
+          <Image src={heroImg} width={"100%"} height={{ base:"30vh", md:"70vh" }} borderRadius={{ base:30 }} objectFit={"cover"}/>  
           <Box position={"absolute"} width={"100%"} top={{ base:14, md:28 }}>
             <Text textAlign={"center"} backdropBlur={20} display={"block"} backgroundColor={"#0000006F"} p={5} fontSize={{ base:20, md:38, lg:56 }} color={"white"}>Discover, Connect, Experience!</Text>
           </Box>
