@@ -9,3 +9,7 @@ body{
 .text{
   font-family: "Roboto", sans-serif;
 }
+
+.active{
+  width: 100% !important;
+}
