@@ -1,12 +1,15 @@
-import { Flex, Image, Box, Input, Text, Button } from "@chakra-ui/react"
+import { Flex, Image, Box, Input, Text, Button, useToast } from "@chakra-ui/react"
 import logo from "../assets/logo.png"
 import login from "../assets/login.png"
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup"
 
 const Login = () => {
+
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -17,8 +20,47 @@ const Login = () => {
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string().min(8, "Password can not be less than 8 characters").required("Required")
     }),
-    onSubmit: values => {
-      console.log(values);
+    onSubmit: async (values) => {
+      const result = await fetch("http://localhost:3000/auth/login", {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+          email: values.email,
+          password: values.password
+        })
+      })
+
+      const msg = await result.json()
+      
+      if(msg.msg){
+
+        if(msg.token){
+          localStorage.setItem("token", msg.token);
+          console.log(localStorage.getItem("token"))
+        }
+
+        toast({
+          title: `${msg.msg}`,
+          status: "success",
+          position: "top-right",
+          variant: "left-accent",
+          isClosable: true,
+        })
+
+        navigate("/", { replace: true });
+      }
+
+      if(msg.error){
+        return toast({
+          title: `${msg.error}`,
+          status: "error",
+          position: "top-right",
+          variant: "left-accent",
+          isClosable: true,
+        })
+      }
     }
   })
 
