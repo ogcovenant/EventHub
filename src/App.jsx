@@ -14,6 +14,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./styles/global.css";
 
 function App() {
+  const token = localStorage.getItem("token");
 
   return (
     <>
@@ -22,16 +23,20 @@ function App() {
           <Route path="/" element={<PageLayout />}>
             <Route index element={<Home />} />
             <Route path="/event" element={<Event />} />
-            <Route path="/event/register" element={<Register />} />
-            <Route path="/event/create" element={<CreateEvent />} />
             <Route path="*" element={<PageNotFound/>}/>
+            { token && 
+              <Route>
+                <Route path="/event/register" element={<Register />} />
+                <Route path="/event/create" element={<CreateEvent />} />
+              </Route>
+            }
           </Route>
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<Profile />} />
-            <Route path="/dashboard/profile" element={<Profile/>}/>
-            <Route path="/dashboard/events" element={<Events/>}/>
-            <Route path="/dashboard/notifications" element={<Notification/>}/>
-          </Route>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route index element={<Profile />} />
+              <Route path="/dashboard/profile" element={<Profile/>}/>
+              <Route path="/dashboard/events" element={<Events/>}/>
+              <Route path="/dashboard/notifications" element={<Notification/>}/>
+            </Route>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}></Route>
         </Routes>

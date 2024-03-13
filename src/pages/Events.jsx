@@ -7,12 +7,18 @@ import {
   Th,
   Td,
   TableContainer,
+  Button
 } from '@chakra-ui/react'
+import { Link } from "react-router-dom"
+import { FaPlus } from "react-icons/fa"
 
 const Events = () => {
   return (
     <>
       <Box>
+        <Box position={"fixed"} right={5} bottom={8}>
+          <Link to={"/event/create"}><Button fontWeight={100} backgroundColor={"#7848F4"} color={"white"} _hover={{backgroundColor: "#7848F4", color:"white"}}> <FaPlus/> &nbsp; Create Event</Button></Link>
+        </Box>
         <Box display={"flex"} flexDirection={{ base:"column", md:"row" }} justifyContent={"center"} alignItems={"center"} height={"full"} gap={"8"}>
           <Box backgroundColor={"green"} width={{ base:"100%", md:"20%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
             <Text fontSize={22}>Events Created</Text>

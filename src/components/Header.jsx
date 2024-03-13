@@ -14,9 +14,10 @@ const Header = () => {
 
 
   useEffect(() => {
-    navigate("/", { replace: true })
-    
+
     if(!token){
+      navigate("/", { replace: true })
+      
       toast({
         title: `Logout Successful`,
         status: "success",
@@ -26,7 +27,7 @@ const Header = () => {
       })
     }
 
-  }, [token])
+  }, [ token ])
 
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => {

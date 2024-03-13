@@ -11,5 +11,6 @@ body{
 }
 
 .active{
-  width: 100% !important;
+  color: white !important;
+  background-color: #7848F4 !important;
 }

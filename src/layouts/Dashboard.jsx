@@ -10,7 +10,7 @@ const Dashboard = () => {
         <DashHeader />
         <Box display={"flex"}>
           <DashSide />
-          <Box width={{ base:"100%", md:"85%" }} p={5}>
+          <Box width={{ base:"100%", md:"80%" }} p={5}>
             <Outlet/>
           </Box>
         </Box>

@@ -26,7 +26,7 @@ const DashHeader = () => {
 
   return (
     <>
-      <Flex p={5} justifyContent={"space-between"} alignItems={"center"}>
+      <Flex p={5} justifyContent={"space-between"} alignItems={"center"} backgroundColor={"white"}>
         <Link to={"/"}><Image as={'img'} src={logo} width={150}/></Link>
         <Box onClick={openMenu} display={{ md:"none" }}>
           <FaBars fontSize={22}/>
