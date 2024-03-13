@@ -2,13 +2,13 @@ import signup from "../assets/signup.png"
 import logo from "../assets/logo.png"
 import { Image, Box, Flex, Text, Input, Button, useToast } from "@chakra-ui/react"
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-// import axios from "axios";
 
 const Signup = () => {
-  // const toast = useToast();
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -24,7 +24,41 @@ const Signup = () => {
       cPassword: Yup.string().min(8, "Passwords do not match").required("Required").oneOf([Yup.ref("password"), null], "Passwords do not match")
     }),
     onSubmit: async (values) => {
-      console.log(values);
+      const result = await fetch("http://localhost:3000/auth/signup", {
+        method:"POST",
+        headers:{
+          "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+          username: values.username,
+          email: values.email,
+          password: values.email
+        })
+      })
+
+      const msg = await result.json()
+
+      if(msg.msg){
+        toast({
+          title: `${msg.msg}`,
+          status: "success",
+          position: "top-right",
+          variant: "left-accent",
+          isClosable: true,
+        })
+
+        navigate("/login", { replace: true });
+      }
+
+      if(msg.error){
+        return toast({
+          title: `${msg.error}`,
+          status: "error",
+          position: "top-right",
+          variant: "left-accent",
+          isClosable: true,
+        })
+      }
     }
   })
 
