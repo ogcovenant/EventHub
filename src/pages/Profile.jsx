@@ -4,7 +4,6 @@ import { useFormik } from "formik"
 import * as Yup from "yup"
 
 const Profile = () => {
-  const [ filePath,setFilePath] = useState();
   const [file, setFile] = useState(null)
   const [ user ,setUser ] = useState([]);
   const formRef = useRef(null)
@@ -48,7 +47,6 @@ const Profile = () => {
   }
 
   function handleChange(e) {
-    setFilePath(URL.createObjectURL(e.target.files[0]))
     setFile(e.target.files[0])
   }
  
