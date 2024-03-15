@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<PageLayout />}>
             <Route index element={<Home />} />
-            <Route path="/event" element={<Event />} />
+            <Route path="/event/:id" element={<Event />} />
             <Route path="*" element={<PageNotFound/>}/>
             { token && 
               <Route>
