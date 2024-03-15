@@ -2,6 +2,7 @@ import { Box, Text, Flex } from "@chakra-ui/react"
 import EventDisplayCard from "./EventDisplayCard"
 import { useEffect, useState } from "react"
 
+
 const EventDisplay = () => {
 
   const token = localStorage.getItem("token")

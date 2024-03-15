@@ -9,6 +9,7 @@ const Event = () => {
   const id = params.id
   const [event, setEvent] = useState([])
   const [creator, setCreator] = useState([])
+  const token = localStorage.getItem("token")
 
   const fetchEventData = async () => {
     
@@ -29,6 +30,18 @@ const Event = () => {
     
   },[])
 
+  const register = async() => {
+    const res = await fetch(`http://localhost:3000/event/register/${id}`, {
+      method: "POST",
+      headers: {
+        "authorization": `Bearer ${token}`
+      }
+    })
+
+    const msg = await res.json();
+    console.log(msg)
+  }
+
   return (
     <>
       <Box mt={5} position={"relative"} my={{ base:5, md:20 }}>
@@ -44,7 +57,7 @@ const Event = () => {
               <Text mt={1}>{new Date(event.date).toDateString()}</Text>
               <Text mt={1}>{event.start_time} - {event.end_time}</Text>
               <Text mt={3} textAlign={"justify"}>{event.description}</Text>
-              <Link to={`/event/register/${event.id}`}><Button fontWeight={"100"} backgroundColor={"#7848F4"} color={"white"} _hover={{backgroundColor: "#7848F4", color:"white"}} mt={3}>Register to this event</Button></Link>
+              <Button onClick={register} fontWeight={"100"} backgroundColor={"#7848F4"} color={"white"} _hover={{backgroundColor: "#7848F4", color:"white"}} mt={3}>Register to this event</Button>
             </Box>
           </Flex>
         </Flex>

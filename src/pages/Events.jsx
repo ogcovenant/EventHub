@@ -20,15 +20,15 @@ const Events = () => {
           <Link to={"/event/create"}><Button fontWeight={100} backgroundColor={"#7848F4"} color={"white"} _hover={{backgroundColor: "#7848F4", color:"white"}}> <FaPlus/> &nbsp; Create Event</Button></Link>
         </Box>
         <Box display={"flex"} flexDirection={{ base:"column", md:"row" }} justifyContent={"center"} alignItems={"center"} height={"full"} gap={"8"}>
-          <Box backgroundColor={"green"} width={{ base:"100%", md:"20%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
+          <Box backgroundColor={"green"} width={{ base:"100%", md:"22%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
             <Text fontSize={22}>Events Created</Text>
             <Text fontSize={42}>4</Text>
           </Box>
-          <Box backgroundColor={"red"} width={{ base:"100%", md:"20%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
+          <Box backgroundColor={"red"} width={{ base:"100%", md:"22%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
             <Text fontSize={22}>Events Registered</Text>
             <Text fontSize={42}>9</Text>
           </Box>
-          <Box backgroundColor={"blue"} width={{ base:"100%", md:"20%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
+          <Box backgroundColor={"blue"} width={{ base:"100%", md:"22%" }} color={"white"} p={5} borderRadius={12} textAlign={"center"}>
             <Text fontSize={22}>Events Attended</Text>
             <Text fontSize={42}>7</Text>
           </Box>

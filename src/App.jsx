@@ -3,7 +3,6 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Event from "./pages/Event";
-import Register from "./pages/Register";
 import CreateEvent from "./pages/CreateEvent";
 import PageNotFound from "./pages/404"
 import Dashboard from "./layouts/Dashboard";
@@ -26,7 +25,6 @@ function App() {
             <Route path="*" element={<PageNotFound/>}/>
             { token && 
               <Route>
-                <Route path="/event/register" element={<Register />} />
                 <Route path="/event/create" element={<CreateEvent />} />
               </Route>
             }
