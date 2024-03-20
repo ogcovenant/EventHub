@@ -11,8 +11,31 @@ import {
 } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
 import { FaPlus } from "react-icons/fa"
+import { useEffect, useState } from "react"
 
 const Events = () => {
+
+  const token = localStorage.getItem("token");
+
+  const[eventsCreated, setEventsCreated] = useState();
+  const[eventsRegistered, setEventsregistered] = useState()
+  const[eventsAttended, setEventsAttended] = useState()
+
+  const fetchData = async () => {
+    const data = await fetch("http://localhost:3000/event/created", {
+      headers: {
+        "authorization": `Bearer ${token}`
+      }
+    })
+
+    const msg = await data.json();
+    console.log(msg)
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   return (
     <>
       <Box>
